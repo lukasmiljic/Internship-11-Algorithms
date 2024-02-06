@@ -62,31 +62,52 @@
 // objekt u kojem se nalazi ime zanimanja, postotak koliko to zanimanje pridonosi ukupnoj plaći,
 // i nizu objekata koji se sastoje od imena osobe i postotak koliko ta osoba pridonosi ukupnoj
 // plaći zanimanja
-const employees = [];
-const jobs = [];
-do {
-  let employee = {
-    firstname: prompt("enter employee firstname"),
-    lastname: prompt("enter employee lastname"),
-    job: prompt("enter employee job"),
-    percent: 0,
-    pay: Number(prompt("enter employee pay")),
-  };
-  employees.push(employee);
+// const employees = [];
+// const jobs = [];
+// do {
+//   let employee = {
+//     firstname: prompt("enter employee firstname"),
+//     lastname: prompt("enter employee lastname"),
+//     job: prompt("enter employee job"),
+//     percent: 0,
+//     pay: Number(prompt("enter employee pay")),
+//   };
+//   employees.push(employee);
 
-  if (!jobs.some((x) => x.Job == job))
-    jobs.push({ job: employee.job, total: employee.pay, percent: 100});
-  else {
-    jobs
-      .filter((X) => X.Job === employee.job)
-      .map(
-        (y) => (y.total = total += y.pay) && (y.percent /**/)
-      );
-  }
+//   if (!jobs.some((x) => x.Job == job))
+//     jobs.push({ job: employee.job, total: employee.pay, percent: 100 });
+//   else {
+//     jobs
+//       .filter((X) => X.Job === employee.job)
+//       .map((y) => (y.total = total += y.pay) && y.percent /**/);
+//   }
+// } while (confirm("continue?"));
+
+// let totalpay = employees.reduce((a, b) => a + b.price, 0);
+
+// jobs.sort((x, y) => x.Employees - y.Employees).sort((x, y) => x.Avg - y.Avg);
+
+// console.log(jobs);
+
+// 4.
+// Unijeti niz voća sa imenom, bojom i kalorijama.Cilj je ispisati svo voće sa istom
+// bojom i koliko ukupno kalorija to voće daje.Neka se sortira po imenu boje.
+const fruits = [];
+do {
+  let fruit = {
+    name: prompt("enter fruit name"),
+    color: prompt("enter fruit color"),
+    calories: prompt("enter fruit calories"),
+  };
+  fruits.push(fruit);
 } while (confirm("continue?"));
 
-let totalpay = employees.reduce((a, b) => a + b.price, 0);
+const fruitsByColor = fruits.reduce((acc, fruit) => {
+  const { name, color, calories } = fruit;
+  acc[color] = acc[color] || { totalCalories: 0, fruits: [] };
+  acc[color].totalCalories += calories;
+  acc[color].fruits.push(name);
+  return acc;
+}, {});
 
-jobs.sort((x, y) => x.Employees - y.Employees).sort((x, y) => x.Avg - y.Avg);
-
-console.log(jobs);
+console.log(fruitsByColor.sort());
