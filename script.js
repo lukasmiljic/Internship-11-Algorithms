@@ -29,7 +29,39 @@
 // isto kao u prvom zadatku(tako i u ostalim zadacima ovog tipa). Cilj zadatka je
 // izračunati prosjek plaće za svako zanimanje i ispisati sortirano objekte gdje
 // piše zanimanje, prosjek i koliko osoba radi to zanimanje.
+// const employees = [];
+// const jobs = [];
+// do {
+//   let employee = {
+//     firstname: prompt("enter employee firstname"),
+//     lastname: prompt("enter employee lastname"),
+//     job: prompt("enter employee job"),
+//     pay: Number(prompt("enter employee wage")),
+//   };
+//   employees.push(employee);
 
+//   if (!jobs.some((x) => x.Job == job))
+//     jobs.push({ Job: job, Avg: pay, Employees: 1 });
+//   else {
+//     jobs
+//       .filter((X) => X.Job === job)
+//       .map(
+//         (y) =>
+//           (y.Avg = (y.Avg * y.Employees + pay) / (y.Employees + 1)) &&
+//           (y.Employees = y.Employees + 1)
+//       );
+//   }
+// } while (confirm("continue?"));
+
+// jobs.sort((x, y) => x.Employees - y.Employees).sort((x, y) => x.Avg - y.Avg);
+
+// console.log(jobs);
+
+// 3.
+// Isti unos kao u drugom zadatku. Treba izračunati zbroj svih plaća zajedno i ispisati
+// objekt u kojem se nalazi ime zanimanja, postotak koliko to zanimanje pridonosi ukupnoj plaći,
+// i nizu objekata koji se sastoje od imena osobe i postotak koliko ta osoba pridonosi ukupnoj
+// plaći zanimanja
 const employees = [];
 const jobs = [];
 do {
@@ -37,22 +69,23 @@ do {
     firstname: prompt("enter employee firstname"),
     lastname: prompt("enter employee lastname"),
     job: prompt("enter employee job"),
-    job: Number(prompt("enter employee wage")),
+    percent: 0,
+    pay: Number(prompt("enter employee pay")),
   };
   employees.push(employee);
 
   if (!jobs.some((x) => x.Job == job))
-    jobs.push({ Job: job, Avg: pay, Employees: 1 });
+    jobs.push({ job: employee.job, total: employee.pay, percent: 100});
   else {
     jobs
-      .filter((X) => X.Job === job)
+      .filter((X) => X.Job === employee.job)
       .map(
-        (y) =>
-          (y.Avg = (y.Avg * y.Employees + pay) / (y.Employees + 1)) &&
-          (y.Employees = y.Employees + 1)
+        (y) => (y.total = total += y.pay) && (y.percent /**/)
       );
   }
 } while (confirm("continue?"));
+
+let totalpay = employees.reduce((a, b) => a + b.price, 0);
 
 jobs.sort((x, y) => x.Employees - y.Employees).sort((x, y) => x.Avg - y.Avg);
 
