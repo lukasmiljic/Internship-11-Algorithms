@@ -23,3 +23,37 @@
 //   if (avg - product.price > max_deviation.price) max_deviation = product;
 // });
 // console.log(max_deviation);
+
+// 2.
+// Korisnik redom upisuje ime, prezime i zanimanje i plaću osobe. Unos se obavlja
+// isto kao u prvom zadatku(tako i u ostalim zadacima ovog tipa). Cilj zadatka je
+// izračunati prosjek plaće za svako zanimanje i ispisati sortirano objekte gdje
+// piše zanimanje, prosjek i koliko osoba radi to zanimanje.
+
+const employees = [];
+const jobs = [];
+do {
+  let employee = {
+    firstname: prompt("enter employee firstname"),
+    lastname: prompt("enter employee lastname"),
+    job: prompt("enter employee job"),
+    job: Number(prompt("enter employee wage")),
+  };
+  employees.push(employee);
+
+  if (!jobs.some((x) => x.Job == job))
+    jobs.push({ Job: job, Avg: pay, Employees: 1 });
+  else {
+    jobs
+      .filter((X) => X.Job === job)
+      .map(
+        (y) =>
+          (y.Avg = (y.Avg * y.Employees + pay) / (y.Employees + 1)) &&
+          (y.Employees = y.Employees + 1)
+      );
+  }
+} while (confirm("continue?"));
+
+jobs.sort((x, y) => x.Employees - y.Employees).sort((x, y) => x.Avg - y.Avg);
+
+console.log(jobs);
