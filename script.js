@@ -127,21 +127,39 @@
 //     category: 0,
 //   };
 // } while (!confirm("continue?"));
-athletes = [
-  { name: "John", surname: "Doe", points: 100 },
-  { name: "Jane", surname: "Smith", points: 90 },
-  { name: "Alice", surname: "Johnson", points: 40 },
-  { name: "Bob", surname: "Williams", points: 20 },
-];
+// const max = athletes.reduce((a, b) => Math.max(a, b.points), -Infinity);
 
-const max = athletes.reduce((a, b) => Math.max(a, b.points), -Infinity);
+// for (let index = 0; index < athletes.length; index++) {
+//   if (athletes[index].points <= 0.25 * max) athletes[index].category = 0;
+//   else if (athletes[index].points <= 0.5 * max) athletes[index].category = 1;
+//   else if (athletes[index].points <= 0.75 * max) athletes[index].category = 2;
+//   else athletes[index].category = 3;
+// }
+// athletes.forEach((arr) => {
+//   console.log(arr);
+// });
 
-for (let index = 0; index < athletes.length; index++) {
-  if (athletes[index].points <= 0.25 * max) athletes[index].category = 0;
-  else if (athletes[index].points <= 0.5 * max) athletes[index].category = 1;
-  else if (athletes[index].points <= 0.75 * max) athletes[index].category = 2;
-  else athletes[index].category = 3;
-}
-athletes.forEach((arr) => {
-  console.log(arr);
-});
+// 6.
+// Upisati ime, cijenu i dostupnost proizvoda.Ispisati indexe svih nedostupnih proizvoda
+// i napraviti novi niz sa dostupnim voćem.Sortirati ga po imenu cijeni, a ako je ista
+// cijena po imenu voća te ispisati taj niz.Na kraju ispisati koliko posto ukupne cijene
+// svih proizvoda doprinosi nedostupno voće
+// let products = [];
+// do {
+//   let product = {
+//     name: prompt("product name"),
+//     price: +prompt("prodcut price"),
+//     available: confirm("available"),
+//   };
+//   products.push(product);
+// } while (confirm("continue"));
+
+// for (let index = 0; index < products.length; index++) {
+//   if (products[index].available == false) console.log(index);
+// }
+
+// let availableProducts = products.filter((x) => x.available === true);
+
+// let unav = products.filter((x) => x.available == false);
+// let sum = unav.reduce((a, b) => a + b.price);
+// console.log(sum);
