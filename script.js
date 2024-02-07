@@ -187,3 +187,25 @@
 // console.log(
 //   parseFloat((UnavailableProductsTotal / totalPrice) * 100).toFixed(2) + "%"
 // );
+
+// 7.
+// Isti unos kao u 6. zadatku. Iz niza voća napraviti novi niz gdje svim dostupnim
+// voćima je boja crvena i svim nedostupnim žuta, sortirati ih po boji pa po
+// imenu i ispisati niz.
+let fruits = [];
+do {
+  let fruit = {
+    name: prompt("fruit name"),
+    color: "",
+    available: confirm("is fruit available"),
+  };
+  fruit.available ? (fruit.color = "red") : (fruit.color = "yellow");
+  fruits.push(fruit);
+} while (confirm("continue"));
+
+fruits.sort((a, b) => {
+  if (a.color != b.color) return a.color.localeCompare(b.color);
+  return a.name.localeCompare(b.name);
+});
+
+console.log(fruits);
