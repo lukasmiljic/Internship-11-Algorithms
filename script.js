@@ -226,20 +226,58 @@
 //   { name: "aaabbbbb", lastname: "a" },
 //   { name: "1234", lastname: "a" },
 // ];
-let people = [];
-do {
-  let person = {
-    name: prompt("enter person name"),
-    lastname: prompt("enter person lastname"),
-  };
-} while (confirm("continue?"));
-filteredPeople = people
-  .filter((x) => x.name.length >= 5)
-  .sort((a, b) => a.name.localeCompare(b.name));
+// let people = [];
+// do {
+//   let person = {
+//     name: prompt("enter person name"),
+//     lastname: prompt("enter person lastname"),
+//   };
+// } while (confirm("continue?"));
+// filteredPeople = people
+//   .filter((x) => x.name.length >= 5)
+//   .sort((a, b) => a.name.localeCompare(b.name));
 
-const csvString = [
-  ["Name"],
-  ...filteredPeople.map((person) => [person.name, person.lastname]),
-]
-  .map((e) => e.join(","))
-  .join("\n");
+// const csvString = [
+//   ["Name"],
+//   ...filteredPeople.map((person) => [person.name, person.lastname]),
+// ]
+//   .map((e) => e.join(","))
+//   .join("\n");
+
+// 10.
+// Isti unos kao u četvrtom zadatku. Neka program izračuna najmanje moguće novaca
+// koliko treba da se kupi sve boje voća barem jedanput.Ispis je konačna cijena i
+// svi kupljeni proizvodi sortirani po količini slova u imenu.
+let fruits = [
+  { name: "a", color: "red", price: 15 },
+  { name: "b", color: "red", price: 150 },
+  { name: "c", color: "blue", price: 5 },
+  { name: "d", color: "yellow", price: 10 },
+];
+// do {
+//   let fruit = {
+//     name: prompt("enter fruit name"),
+//     color: prompt("enter fruit color"),
+//     price: +prompt("enter fruit price"),
+//   };
+//   fruits.push(fruit);
+// } while (confirm("continue?"));
+
+const cheapestFruitsByColor = {};
+
+fruits.forEach((fruit) => {
+  if (
+    !cheapestFruitsByColor[fruit.color] ||
+    cheapestFruitsByColor[fruit.color].price > fruit.price
+  ) {
+    cheapestFruitsByColor[fruit.color] = fruit;
+  }
+});
+
+const CheapestFruitsByColor = Object.values(cheapestFruitsByColor).sort(
+  (a, b) => a.name.length - b.name.length
+);
+
+const minCost = CheapestFruitsByColor.reduce((a, b) => a + b.price, 0);
+console.log(minCost);
+console.log(cheapestFruitsByColor);
