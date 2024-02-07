@@ -141,25 +141,49 @@
 
 // 6.
 // Upisati ime, cijenu i dostupnost proizvoda.Ispisati indexe svih nedostupnih proizvoda
-// i napraviti novi niz sa dostupnim voćem.Sortirati ga po imenu cijeni, a ako je ista
+// i napraviti novi niz sa dostupnim voćem.Sortirati ga po cijeni, a ako je ista
 // cijena po imenu voća te ispisati taj niz.Na kraju ispisati koliko posto ukupne cijene
 // svih proizvoda doprinosi nedostupno voće
+// let products = [
+//   { name: "a", price: 15, available: true },
+//   { name: "a", price: 150, available: true },
+//   { name: "b", price: 150, available: true },
+//   { name: "b", price: 50, available: false },
+//   { name: "c", price: 50, available: false },
+// ];
 // let products = [];
 // do {
 //   let product = {
 //     name: prompt("product name"),
-//     price: +prompt("prodcut price"),
+//     price: Number(prompt("prodcut price")),
 //     available: confirm("available"),
 //   };
 //   products.push(product);
 // } while (confirm("continue"));
 
+// console.log("index of unavailable products");
 // for (let index = 0; index < products.length; index++) {
 //   if (products[index].available == false) console.log(index);
 // }
 
-// let availableProducts = products.filter((x) => x.available === true);
+// console.log("available products");
+// const availableProducts = products
+//   .filter((product) => product.available)
+//   .sort((a, b) => {
+//     if (a.price === b.price) {
+//       return a.name.localeCompare(b.name);
+//     }
+//     return a.price - b.price;
+//   });
+// console.log(availableProducts);
 
-// let unav = products.filter((x) => x.available == false);
-// let sum = unav.reduce((a, b) => a + b.price);
-// console.log(sum);
+// console.log("unavailable products price percentage");
+// let UnavailableProducts = products.filter((x) => x.available == false);
+// let UnavailableProductsTotal = UnavailableProducts.reduce(
+//   (a, b) => a + b.price,
+//   0
+// );
+// let totalPrice = products.reduce((a, b) => a + Number(b.price), 0);
+// console.log(
+//   parseFloat((UnavailableProductsTotal / totalPrice) * 100).toFixed(2) + "%"
+// );
