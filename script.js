@@ -214,6 +214,32 @@
 // Riješi problem Gaussove dosjetke koristeći petlje i JS ugrađene funkcije nad nizovima
 // (zabranjeno korištenje formule). Sami napravite array s prvih 100 prirodnih brojeva
 // (bonus points ako napravit bez petlje)
+// let nums = Array.from(new Array(100), (x, i) => i + 1);
+// let total = nums.reduce((a, b) => a + b);
 
-let nums = Array.from(new Array(100), (x, i) => i + 1);
-let total = nums.reduce((a, b) => a + b);
+// 9.
+// Traži unos imena osoba, sortiraj ih i filtriraj da budu imena sa više od 5 slova
+// te ih ispiši u csv formatu(comma seperated values)
+// let people = [
+//   { name: "aaaaaaaa", lastname: "a" },
+//   { name: "bbbbbbbb", lastname: "a" },
+//   { name: "aaabbbbb", lastname: "a" },
+//   { name: "1234", lastname: "a" },
+// ];
+let people = [];
+do {
+  let person = {
+    name: prompt("enter person name"),
+    lastname: prompt("enter person lastname"),
+  };
+} while (confirm("continue?"));
+filteredPeople = people
+  .filter((x) => x.name.length >= 5)
+  .sort((a, b) => a.name.localeCompare(b.name));
+
+const csvString = [
+  ["Name"],
+  ...filteredPeople.map((person) => [person.name, person.lastname]),
+]
+  .map((e) => e.join(","))
+  .join("\n");
