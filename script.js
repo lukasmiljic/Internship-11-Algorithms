@@ -192,20 +192,28 @@
 // Isti unos kao u 6. zadatku. Iz niza voća napraviti novi niz gdje svim dostupnim
 // voćima je boja crvena i svim nedostupnim žuta, sortirati ih po boji pa po
 // imenu i ispisati niz.
-let fruits = [];
-do {
-  let fruit = {
-    name: prompt("fruit name"),
-    color: "",
-    available: confirm("is fruit available"),
-  };
-  fruit.available ? (fruit.color = "red") : (fruit.color = "yellow");
-  fruits.push(fruit);
-} while (confirm("continue"));
+// let fruits = [];
+// do {
+//   let fruit = {
+//     name: prompt("fruit name"),
+//     color: "",
+//     available: confirm("is fruit available"),
+//   };
+//   fruit.available ? (fruit.color = "red") : (fruit.color = "yellow");
+//   fruits.push(fruit);
+// } while (confirm("continue"));
 
-fruits.sort((a, b) => {
-  if (a.color != b.color) return a.color.localeCompare(b.color);
-  return a.name.localeCompare(b.name);
-});
+// fruits.sort((a, b) => {
+//   if (a.color != b.color) return a.color.localeCompare(b.color);
+//   return a.name.localeCompare(b.name);
+// });
 
-console.log(fruits);
+// console.log(fruits);
+
+// 8.
+// Riješi problem Gaussove dosjetke koristeći petlje i JS ugrađene funkcije nad nizovima
+// (zabranjeno korištenje formule). Sami napravite array s prvih 100 prirodnih brojeva
+// (bonus points ako napravit bez petlje)
+
+let nums = Array.from(new Array(100), (x, i) => i + 1);
+let total = nums.reduce((a, b) => a + b);
